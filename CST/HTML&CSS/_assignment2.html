@@ -1,0 +1,157 @@
+<!doctype html>
+								<!-- Cameron Tharpe, Tuesday (12:30)   Assignment 2. -->
+<html>
+    <head>
+        <title> Assignment 2 </title>
+        <link rel="stylesheet" href="_assignment2.css">
+    </head>
+    <body>
+		<h1 style="padding: 3%;"> Villy Vonka's Chocolate Factory </h1>
+		
+		<span class="thatBox">
+			Random generated text: Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy.</br>Me in resolution pianoforte continuing we.
+			Most my no spot felt by no. He he in forfeited furniture sweetness he arranging.
+			Boy desirous families prepared reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read.
+			Game of as rest time eyes with of this it.
+			text box Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we.
+			Most my no spot felt by no. He he in forfeited furniture sweetness he arranging.
+			Boy desirous families prepared reserved add</br>ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read.
+			Game of as rest time eyes with of this it.
+		</span>
+		
+		<div style="padding-top: 25px; padding-bottom: 25px;">  <!--Table 1-->
+			<span class="thoseBoxes">
+				<table>
+					<td width="60%"> <!--Cell 1-->
+						<div >
+							<img id="image1" src="./Chocolate.jpg" alt="candy">
+							<form>
+								<input type="checkbox"> Add this item to cart.
+							</form>
+						</div>
+					</td>
+					<td style="text-align: top;"> <!--Cell 2-->
+						<div style="text-align: top;">
+							<p style="color: cornflowerblue;"> <b>Candy</b> </p>
+							<p> item discription goes here. </p>
+							<p> Price: $3.99 </p>
+							<form style="text-align: left; padding-left: 35%;">
+								<input type="radio" name="op1flavor" value="op1_choc"> Chocolate<br>
+								<input type="radio" name="op1flavor" value="op1_mix" checked> Mixed<br>
+								<input type="radio" name="op1flavor" value="op1_vanil"> Vanilla<br>
+							</form>
+							<br>
+						</div>
+					</td>
+				</table>
+			</span>
+		</div>
+
+		<hr>
+		
+		<div style="padding-top: 25px; padding-bottom: 25px;">  <!--Table 2-->
+			<span class="thoseBoxes">
+				<table>
+					<td width="60%"> <!--Cell 1-->
+						<div>
+							<img id="image2" src="./sweet.jpg" alt="b&j">
+							<form>
+								<input type="checkbox"> Add this item to cart.
+							</form>
+						</div>
+					</td>
+					<td style="text-align: top;"> <!--Cell 2-->
+						<div style="text-align: top;">
+							<p style="color: cornflowerblue;"> <b>B&J Ice Cream</b> </p>
+							<p> item discription goes here. </p>
+							<p> Price: $5.89 </p>
+							<form>
+								<label for="listOption">Select a flavor:</label>
+								<select id="listOption">
+									<option name="op2flavor" value="op2_choc">Chocolate</option>
+									<option name="op2flavor" value="op2_vanil">Vanilla</option>
+									<option name="op2flavor" value="op2_straw">Strawberry</option>
+									<option name="op2flavor" value="op2_diabetes">Diabetes</option>
+								</select>
+							</form>
+							<br>
+						</div>
+					</td>
+				</table>
+			</span>
+		</div>
+		
+		<hr>
+		
+		<div style="padding-top: 25px; padding-bottom: 25px;">  <!--Table 3-->
+			<span class="thoseBoxes">
+				<table>
+					<td width="60%"> <!--Cell 1-->
+						<div >
+							<img id="image3" src="./icecream.jpg" alt="bettyC">
+							<form>
+								<input type="checkbox"> Add this item to cart.
+							</form>
+						</div>
+					</td>
+					<td style="text-align: top;"> <!--Cell 2-->
+						<div style="text-align: top;">
+							<p style="color: cornflowerblue;"> <b>Apple Cake</b> </p>
+							<p> item discription goes here. </p>
+							<p> Price: $6.99 </p>
+							<form style="text-align: left; padding-left: 35%;">
+								<input type="checkbox" name="op3_box1" value="op3_choc"> Chocolate Cake.<br>
+								<input type="checkbox" name="op3_box2" value="op3_SFree"> Sugar Free.<br>
+							</form>
+							<br>
+						</div>
+					</td>
+				</table>
+			</span>
+		</div>
+
+		<span class="shippingInfo">
+			<p style="color:rgb(114, 55, 6); text-align: center;">
+				<b>Shipping Information:</b>
+			</p>
+			<form action="http://ck.csit.selu.edu/~ck/cgi-bin/formhandler.pl" target="_blank" method="POST">
+				<div style="text-align: right; padding-right: 30%;">
+					<div> <!-- your name -->
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name"
+						required placeholder="Enter your name">
+					</div>
+					<div> <!-- your phone -->
+						<label for="phone">Your phone number:</label>
+						<input type="tel" id="phone" name="phone"
+						pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+						required placeholder="Phone Number">
+					</div>
+					<div> <!-- shipping address -->
+						<label for="shipping">Shipping address:</label>
+						<input type="text" id="addr" name="addr"
+						required placeholder="Shipping Address">
+					</div>
+				</div>
+
+				<div> <!-- mailing list -->
+					<br>Should we put you on our mailing list?
+					<input type="radio" name="mail" value="y" checked> Yes
+					<input type="radio" name="mail" value="n"> No
+				</div>
+
+				<div style="padding-top: 2%; text-align: left;">  <!-- message box & submit button -->
+					<label for="message">Message or any particular instructions:<br></label>
+					<textarea
+						id="message" name="message"
+						rows="5" cols="60" maxlength="200">
+					</textarea>
+					<br>
+					<button type="submit"> Submit </button>
+				</div>
+			</form>
+		</span>
+
+	</body>
+	
+</html>

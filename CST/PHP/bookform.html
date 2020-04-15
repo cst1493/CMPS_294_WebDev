@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <!-- <title>Sample form to take user input in XHTML</title> -->
+       <title> Book Form Page </title>
+       <style>
+           body {background-color: bisque; padding:2%; font-size: larger;
+                text-align: center; font-family: Arial, Helvetica, sans-serif;}
+       </style>
+    </head>
+    <body>
+        <h1> Book Inventory Management </h1>
+        <hr/>
+        <form action="http://ck.csit.selu.edu/~tharpe/php/bookform.php" target="_blank" method="POST">
+            <div>
+                <label for="title"><b style="font-size: larger;">Select operation:</b></label>
+                <select id="dbCommand" name="dbCommand">
+                    <option value="search_all">Search Full Database</option>
+                    <option value="add">Add New Book</option>
+                    <option value="delete">Delete (by title)</option>
+                    <option value="edit">Edit (by title)</option>
+                </select>
+            </div>
+            </br>
+			<div>
+				<label for="title">Title</label>
+				<input type="text" id="title" name="title"
+				required placeholder="Book title" value="The Notebook">
+            </div>
+            </br>
+			<div>
+				<label for="author">Author</label>
+                <input type="text" id="author" name="author"
+                placeholder="John Brown">
+            </div>
+            </br>
+            <div>
+				<label for="ISBN">ISBN</label>
+                <input type="text" id="ISBN" name="ISBN" 
+                placeholder="7459"> <!--International Standard Book Number-->
+            </div>
+            </br>
+            <div>
+				<label for="publisher">Publisher</label>
+                <input type="text" id="publisher" name="publisher"
+                placeholder="ABC Publishing">
+            </div>
+            </br>
+            <div>
+				<label for="year">Year</label>
+                <input type="text" id="year" name="year"
+                placeholder="1990" value="2000">
+            </div>
+			<button type="submit"> Submit </button>
+        </form>
+        <p style="width: 50%; padding-left: 25%;">
+            This is the inventory database.<br/>You must include 
+            a book title in order to add a new entry, as this 
+            is how to search for a book. <br/> Note that the book titles 
+            are cap sensitive. "Alice in Wonderland" is different than
+            "alice in wonderland".<br/><br/>When you enter, manipulate or wish 
+            to see the data, you will be sent to a new tab showing the given 
+            data.  <br/>For delete and select all, you only need to enter the Title 
+            section, as this is a required field.
+
+        </p>
+        
+    </body>
+
+</html>
+
+
+<!--
+<div>
+    <label for="message">Message:</label>
+    <textarea
+        id="message" name="message"
+        rows="4" cols="40" maxlength="20">
+    </textarea>
+</div> -->

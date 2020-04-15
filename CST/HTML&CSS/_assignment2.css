@@ -1,0 +1,46 @@
+html {background-color: #e6cbb3; border: 8px solid lightseagreen; text-align: center; font-size: large;}
+h2 {text-align: center;}
+
+span.thatBox 
+{
+    display: block;
+    margin: auto;
+    width: 80%;
+    background-position: center;
+    background-color: #e2d5f0;
+    border: 2px solid red;
+    padding: 18px;
+}
+
+span.thoseBoxes
+{
+    margin: auto;
+    border: 2px solid black;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 1px;
+    padding-right: 50px;
+    display: block;
+    width: 70%;
+    box-sizing: border-box;
+}
+span.shippingInfo
+{
+    margin: auto;
+    display: block;
+    width: 90%;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+table { width: 100%; }
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: black;
+    width: 50%
+}
+img {
+    box-align: center;
+}
