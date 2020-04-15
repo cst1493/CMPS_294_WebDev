@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> <!--  http://localhost/CMPS_294_WebDev/CST/PHP&MySQL/bookform.html -->
     <head>
        <!-- <title>Sample form to take user input in XHTML</title> -->
        <title> Book Form Page </title>
@@ -11,12 +11,15 @@
     <body>
         <h1> Book Inventory Management </h1>
         <hr/>
-        <form action="http://ck.csit.selu.edu/~tharpe/php/bookform.php" target="_blank" method="POST">
+        <!--<form action="http://ck.csit.selu.edu/~tharpe/php/bookform.php" target="_blank" method="POST"> -->
+        <!-- <form action="http://localhost/CMPS_294_WebDev/CST/PHP&MySQL/bookform.php" target="_blank" method="POST"> -->
+        <!-- <form action="bookform.php" target="_blank" method="POST"> -->
+        <form action="index.php" target="_blank" method="POST">
             <div>
                 <label for="title"><b style="font-size: larger;">Select operation:</b></label>
                 <select id="dbCommand" name="dbCommand">
-                    <option value="search_all">Search Full Database</option>
                     <option value="add">Add New Book</option>
+                    <option value="search_all">Search Full Database</option>
                     <option value="delete">Delete (by title)</option>
                     <option value="edit">Edit (by title)</option>
                 </select>
@@ -31,19 +34,19 @@
 			<div>
 				<label for="author">Author</label>
                 <input type="text" id="author" name="author"
-                placeholder="John Brown">
+                placeholder="John Brown" value="John Brown">
             </div>
             </br>
             <div>
 				<label for="ISBN">ISBN</label>
                 <input type="text" id="ISBN" name="ISBN" 
-                placeholder="7459"> <!--International Standard Book Number-->
+                placeholder="7459" value="1111"> <!--International Standard Book Number-->
             </div>
             </br>
             <div>
 				<label for="publisher">Publisher</label>
                 <input type="text" id="publisher" name="publisher"
-                placeholder="ABC Publishing">
+                placeholder="ABC Publishing" value="ABC Publishing">
             </div>
             </br>
             <div>
