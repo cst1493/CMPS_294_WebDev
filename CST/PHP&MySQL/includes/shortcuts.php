@@ -1,16 +1,18 @@
 <?php
     
-    function printResult($connection, $sqlCommand) //or printResult???
+    function printResult($connection, $sqlCommand)
     {
         $result = mysqli_query($connection, $sqlCommand); //$conn comes from dbh.php, the database handler.
         
         $resultCheck = mysqli_num_rows($result); //if data exists, expect greater than 0.
         if ($resultCheck > 0) //if any entries exist, print them out.
         {
+            $i = 1;
             while ($row = mysqli_fetch_assoc($result)) //while the database has more entries...
             {
-                echo $row['title'] . ", " . $row['author'] . ", " . $row['isbn'] . ", " .
-                $row['publisher'] . ", " . $row['year'] . "; " . "<br>";
+                echo "book " . $i . ":<br>" . $row['title'] . ", " . $row['author'] . ", " . $row['isbn'] . ", " .
+                $row['publisher'] . ", " . $row['year'] . "; " . "<br><br>";
+                $i++;
             }
         }
         else echo("No entries found.");
@@ -34,8 +36,14 @@
         {
             echo "The title, \"$userInputArr[0],\" already exists.  Try another title or check if that book is already in the database.";
         }
-        else //finally add to database.
+        else //finally add to database.  Check if year or ISBN are null first.  if they are, replace with 0 for no error on SQL side.
         {
+            if(strcmp($userInputArr[2], '') == 0){ //if the user doesn't add an ISBN.
+                $userInputArr[2] = 0;
+            }
+            if(strcmp($userInputArr[4], '') == 0){ //if the user doesn't add a year.
+                $userInputArr[4] = 0;
+            }
             //SQL syntax: insert into books (title, author, isbn, publisher, year) VALUES ('The Book', 'Will Smith', 1234, 'The Publishers',  1999);
             $sqlCommand = "insert into books (title, author, isbn, publisher, year) VALUES 
             ('$userInputArr[0]', '$userInputArr[1]', '$userInputArr[2]', '$userInputArr[3]',  '$userInputArr[4]');";

@@ -1,7 +1,7 @@
 <?php
     include_once 'includes/dbh.php'; //filepath.
     include 'includes/shortcuts.php';
-    //http://localhost/CMPS_294_WebDev/CST/PHP&MySQL/books.php connect locally. TODO remove
+    //http://localhost/CMPS_294_WebDev/CST/PHP&MySQL/books.php connect locally.
 ?>
 
 <!DOCTYPE html>
