@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<HTML style='text-align: center; margin:auto; font-size: x-large; background-color: wheat;'> 
+    <head>
+        <link rel="stylesheet" type="text/css">
+        <title> CT 1st-JS-assignment </title>
+    </head>
+    <body>
+        <h1>Fill in the form below:</h1>
+        <form id='form1' name='form1' style='text-align: right; width: 60%' action="http://csit.selu.edu/cgi-bin/echo.cgi" onsubmit='return checkAndSubmit()';>
+            <div style="margin-bottom: 15px;">
+                <label for='address'>Address:</label>
+                <input type='text' id='address' name='address' placeholder="Enter Address">
+            </div>
+            <div id='formType' style="margin-bottom: 15px;"> <!--this text gets replaced-->
+                <label for='business'>This is a Business</label>
+                <input type='radio' id='business' name='type' value='business' onclick='setFormType(true)'>
+                </br>
+                <label for='residence'>This is a Residence</label>
+                <input type='radio' id='residence' name='type' value='residence' onclick='setFormType(false)'>
+            </div>
+            <div id='replaceForm'> <!--This div gets replaced--> </div>
+            <input type="submit" style="margin-top: 10px;"> <!-- value="Submit here" -->
+        </form>
+        
+        <script>
+        function setFormType(business){
+            var existingForm = document.getElementById('replaceForm')
+            var newDiv = document.createElement('div')
+            newDiv.setAttribute("id", "replaceForm")
+            if (business === true) //add business name, business website url & business tax id into the form.
+            {
+                newDiv.innerHTML = (`
+                    <label for="bName">Business Name:</label>
+                    <input type="text" id='bName' name='bName' placeholder="Your Business Name">
+                    </br>
+                    <label for="bURL">Business Website URL:</label>
+                    <input type="text" id='bURL' name='bURL' placeholder="Your Business Website">
+                    </br>
+                    <label for="bTax">Business Tax ID:</label>
+                    <input type="text" id='bTax' name='bTax' placeholder="Tax ID Number">`
+                );
+                existingForm.replaceWith(newDiv);
+            }
+            else { //add name & email to the form.
+                newDiv.innerHTML = (`   
+                    <label for="rName">Name:</label>
+                    <input type="text" id='rName' name='rName' placeholder="Your Name">
+                    </br>
+                    <label for="rEmail">Email Address:</label>
+                    <input type="text" id='rEmail' name='rEmail' placeholder="Your Email Address">`
+                );
+                existingForm.replaceWith(newDiv);
+            }
+        }
+        function checkAndSubmit(){
+            var radioValues = document.getElementsByName('type'); //all radio buttons
+            var radioValue = null;
+
+            const RegexName = /^[a-zA-Z]+(([' ][a-zA-Z ])?[a-zA-Z]*)*$/;
+            const RegexWebUrl = /^(www.)[-a-zA-Z0-9.]{1,100}.(com)|(www.)[-a-zA-Z0-9.]{1,100}.(net)|(www.)[-a-zA-Z0-9.]{1,100}.(edu)$/;
+            const RegexTaxId = /^[0-9]{5,12}$/;
+            const RegexEmail = /^[a-zA-Z0-9]{1,20}@[a-zA-Z0-9]{1,20}.[a-zA-Z]{1,5}$/;
+            
+            for(i = 0; i < radioValues.length; i++){ //get selected radio button.
+                if(radioValues[i].checked){
+                    radioValue = radioValues[i].value;
+                }
+            }
+            if(document.form1.address.value == ''){
+                alert('Enter your address')
+                return false
+            }
+            if(radioValue === 'business') //check business name, business URL & tax ID. 
+            {
+                if((!RegexName.test(document.form1.bName.value)) || (document.form1.bName.value == '')){ //business name
+                    alert('Invalid name');
+                    return false;
+                }
+                if((!RegexWebUrl.test(document.form1.bURL.value)) || (document.form1.bURL.value == '')){ //business URL
+                    alert('Invalid web URL');
+                    return false;
+                }
+                if((!RegexTaxId.test(document.form1.bTax.value)) || (document.form1.bTax.value == '')){ //business tax ID
+                    alert('Enter a tax ID number between 5 and 12 numbers.')
+                    return false;
+                }
+                //all tests are passed.  Submit form.
+                alert('Your form was successfully verified.');
+                return true;
+            }
+            else if(radioValue === 'residence') //check name & email
+            {
+                //alert(radioValue);
+                if((!RegexName.test(document.form1.rName.value)) || (document.form1.rName.value == '')){
+                    alert('Invalid name');
+                    return false;
+                }
+                if((!RegexEmail.test(document.form1.rEmail.value)) || (document.form1.rEmail.value == '')){
+                    alert('invalid email address');
+                    return false;
+                }
+                //all tests are passed.  Submit form.
+                alert('Your form was successfully verified.');
+                return true;
+            }
+            else
+            {
+                alert('Select "Business" or "Residence" to start a new form.')
+                return false;
+            }
+        }
+        </script>
+    </body>
+</HTML>
