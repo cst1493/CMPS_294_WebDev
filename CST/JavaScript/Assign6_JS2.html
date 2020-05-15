@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<HTML style='text-align: center; margin:auto; font-size: x-large; background-color: #4b74fb;'> 
+    <head>
+        <link rel="stylesheet" type="text/css">
+        <title> CT 2nd-JS-assignment </title>
+    </head>
+    <body>
+        <div style='position: absolute; top: 0; left:0; width: 100%; background: #14a9bd; height: 130px;'>
+            <h1>Fill in the form below:</h1>
+        </div>
+
+        <form id='form1' name='form1' style='text-align: right; width: 60%; padding-top: 150px;' 
+            onsubmit='return checkAndSubmit();' action="http://csit.selu.edu/cgi-bin/echo.cgi">
+            <div style="margin-bottom: 20px;">
+                <label for='name'>Name:</label>
+                <input type='text' id='name' name='name' placeholder="Enter your name">
+            </br>
+                <label for='company'>Company:</label>
+                <input type='text' id='company' name='company' placeholder="Enter company name">
+            </br>
+                <label for='email'>Email:</label>
+                <input type='text' id='email' name='email' placeholder="email@aol.com">
+            </br>
+                <label for='phone'>Phone Number:</label>
+                <input type='text' id='phone' name='phone' placeholder="xxx-xxx-xxxx">
+            </br>
+                <label for='website'>Website:</label>
+                <input type='text' id='website' name='website' placeholder="www.neopets.com">
+            </br>
+                <label for="dropdown">Type of company:</label>
+                <select id="dropdown" name='dropdown'>
+                    <option value='select'>Select</option>
+                    <option value='llc'>LLC</option>
+                    <option value='sp'>Sole Proprietor</option>
+                    <option value='inc'>INC</option>
+                    <option value='corp'>Corp</option>
+                </select> 
+            </div>
+            <input type='reset'  value='clear form'  style='background-color:#922828 ;'>
+            <input type='submit' value='submit form' style='background-color:#7dd17d;'>
+        </form>
+        
+        <script>
+            function checkAndSubmit()
+            {
+                const RegexName = /^([a-zA-Z']{3,20}[ ']?)([a-zA-Z']{0,20})[ ']?([a-zA-Z']{0,20})$/; //optional 2nd and 3rd name or initial.
+                const RegexCompany = /^([a-zA-Z0-9 ']{3,30})$/;
+                const RegexEmail = /^[a-zA-Z0-9_]{1,30}@[a-zA-Z0-9]{1,20}.[a-zA-Z]{2,3}$/;
+                const RegexPhone = /^((\([0-9]{3}\)[- ]?)|([0-9]{3}[- ]?))?(\d{3}[- ]?\d{4})$/; //optional area-code and dashes/spaces.
+                const RegexWeb = /^(www.)[-a-zA-Z0-9.]{1,100}.(com)|(www.)[-a-zA-Z0-9.]{1,100}.(net)|(www.)[-a-zA-Z0-9.]{1,100}.(edu)|(www.)[-a-zA-Z0-9.]{1,100}.(org)$/;
+
+                if(!RegexName.test(document.form1.name.value))
+                {
+                    alert('\"' + document.form1.name.value + '\" is an invalid name.');
+                    return false;
+                }
+                if(!RegexCompany.test(document.form1.company.value))
+                {
+                    alert('\"' + document.form1.company.value + '\" is an invalid company name.');
+                    return false;
+                }
+                if(!RegexEmail.test(document.form1.email.value))
+                {
+                    alert('\"' + document.form1.email.value + '\" is an invalid email address.');
+                    return false;
+                }
+                if(!RegexPhone.test(document.form1.phone.value))
+                {
+                    alert('\"' + document.form1.phone.value + '\" is an invalid phone number.');
+                    return false;
+                }
+                if(!RegexWeb.test(document.form1.website.value))
+                {
+                    alert('\"' + document.form1.website.value + '\" is an invalid website URL.');
+                    return false;
+                }
+                if(document.form1.dropdown.value == "select")
+                {
+                    alert('Select a value for the type of company.');
+                    return false;
+                }
+                //passed all tests.
+                alert('Form was successfully sent.');
+                return true;
+            }
+        </script>
+    </body>
+</HTML>
+
+<!--
+//textboxes: name, company, email, phone, website, type of business.
+//buttons: submit, dropdown and clear.
+
+//name: at least 3 letters.
+//email: xxx@xxx.[2 or 3 letters].
+//phone: (ddd)ddd-dddd or (ddd)ddddddd or ddd-ddd-dddd or ddd-ddddddd
+//website: .com || .net || .org || .edu
+//type of company start on "Select" and returns false.
+
+//send in report & code in zip file.
+-->
